@@ -98,11 +98,11 @@ papermill simple_regression.ipynb output.ipynb -p data_ver 1 -p model_ver 1
 
 ##### Jenkins
 Install Jenkins for ubuntu:
-https://linuxize.com/post/how-to-install-jenkins-on-ubuntu-18-04/
+https://www.jenkins.io/doc/book/installing/linux/#debianubuntu
 
 After installing Jenkins:
 ```
-services start jenkins
+sudo service jenkins start
 ```
 To access to jenkins: http://localhost:8080
 
@@ -159,10 +159,10 @@ conda activate $PYENV_HOME
 cd nb
 papermill simple_regression.ipynb output.ipynb -p data_ver ${data_version} -p model_ver ${model_version}
 
-ls -la ../models
+ls -la ../../models
 
 #push to nexus. comment if not installed
-curl -v -u admin:admin -X POST 'http://localhost:8081/service/rest/v1/components?repository=maven-releases' -F "maven2.groupId=models" -F "maven2.artifactId=simple_regresion" -F "maven2.version=${data_version}.${model_version}" -F "maven2.asset1=../models/linear_regression_model_v${model_version}.pkl" -F "maven2.asset1.extension=pkl"
+curl -v -u admin:admin -X POST 'http://localhost:8081/service/rest/v1/components?repository=maven-releases' -F "maven2.groupId=models" -F "maven2.artifactId=simple_regresion" -F "maven2.version=${data_version}.${model_version}" -F "maven2.asset1=../../models/linear_regression_model_v${model_version}.pkl" -F "maven2.asset1.extension=pkl"
 ```
 
 #### Nexus
