@@ -254,11 +254,15 @@ training:
 docker-compose run --service-ports training
 ```
 all:
+```
 docker-compose up --build
-
+```
 - Delete old images:
+```
 docker system prune -a
-
+```
 
 - Connect to a container:
+```
 docker exec -it <container name> /bin/bash
+```
